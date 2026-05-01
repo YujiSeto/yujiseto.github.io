@@ -1,0 +1,33 @@
+{
+  "Navbar": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Habilidades"
+  },
+  "Hero": {
+    "greeting": "Olá, eu sou",
+    "titlePart1": "Rodrigo Yuji",
+    "titlePart2": "Seto Soma",
+    "subtitle": "Desenvolvedor Front-End",
+    "valueProposition": "Crio aplicações web rápidas, limpas e escaláveis, unindo desenvolvimento Front-End com uma visão estratégica de negócios.",
+    "viewProjects": "Ver Projetos",
+    "downloadCV": "Baixar CV"
+  },
+  "About": {
+    "title": "Sobre Mim",
+    "content": "Sou um Desenvolvedor Front-End morando em Mie, no Japão, especializado em Next.js, React e TypeScript. Com uma década de experiência prévia em negócios e vendas no Brasil, trago uma perspectiva única para a programação: não apenas crio software, construo soluções focadas nos objetivos do cliente e em resultados reais. Atualmente, dedico-me ao aprendizado contínuo e ao desenvolvimento de aplicações web práticas e de alta qualidade."
+  },
+  "Projects": {
+    "title": "Projetos em Destaque",
+    "viewGitHub": "GitHub",
+    "liveDemo": "Live Demo"
+  },
+  "Skills": {
+    "title": "Habilidades Técnicas"
+  },
+  "Footer": {
+    "rights": "Todos os direitos reservados.",
+    "contact": "Contato",
+    "tagline": "Conectando necessidades de negócios com tecnologia moderna."
+  }
+}
