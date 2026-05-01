@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { ArrowRight } from "lucide-react";
@@ -6,7 +7,10 @@ import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiJavascript, SiNode
 import { FaGitAlt } from "react-icons/fa";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = useTranslations("About");
   const footerT = useTranslations("Footer");
 
