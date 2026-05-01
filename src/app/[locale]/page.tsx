@@ -1,5 +1,4 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { ArrowRight } from "lucide-react";
@@ -11,8 +10,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = useTranslations("About");
-  const footerT = useTranslations("Footer");
+  const t = await getTranslations("About");
+  const footerT = await getTranslations("Footer");
+  const projectsT = await getTranslations("Projects");
+  const skillsT = await getTranslations("Skills");
 
   const skills = [
     { name: 'Next.js', icon: SiNextdotjs },
@@ -83,7 +84,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="projects" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{useTranslations("Projects")("title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{projectsT("title")}</h2>
             <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
           </div>
           
@@ -158,7 +159,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="skills" className="py-24 px-4 bg-secondary/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{useTranslations("Skills")("title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{skillsT("title")}</h2>
             <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
           </div>
 
@@ -196,7 +197,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </a>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              © 2026 YujiSeto. {useTranslations("Footer")("rights")}
+              © 2026 YujiSeto. {footerT("rights")}
             </p>
           </div>
         </div>
