@@ -1,7 +1,7 @@
+import type { NextConfig } from 'next';
 import path from 'path';
- 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.alias['next-intl/config'] = path.resolve('./src/i18n/request.ts');
     return config;
@@ -12,5 +12,5 @@ const nextConfig = {
     },
   },
 };
- 
+
 export default nextConfig;
