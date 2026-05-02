@@ -75,7 +75,7 @@ export const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#projects"
-            className="w-full sm:w-auto flex items-center justify-center px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold text-lg hover:shadow-xl transition-all group"
+            className="w-full sm:w-auto flex items-center justify-center px-8 py-4 bg-foreground text-background rounded-full font-bold text-lg hover:shadow-xl transition-all group"
           >
             {t("viewProjects")}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -86,7 +86,7 @@ export const Hero = () => {
             whileTap={{ scale: 0.95 }}
             href={cvPath}
             download
-            className="w-full sm:w-auto flex items-center justify-center px-8 py-4 bg-transparent border-2 border-border hover:border-foreground text-foreground rounded-full font-bold text-lg transition-all group"
+            className="w-full sm:w-auto flex items-center justify-center px-8 py-4 bg-transparent border-2 border-foreground/10 hover:border-foreground text-foreground rounded-full font-bold text-lg transition-all group"
           >
             <Download className="mr-2 w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             {t("downloadCV")}
@@ -101,7 +101,7 @@ export const Hero = () => {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
       >
-        <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">Scroll</span>
+        <span className="text-xs uppercase tracking-widest text-foreground/40 font-bold">Scroll</span>
         <div className="w-px h-12 bg-linear-to-b from-blue-500 to-transparent" />
       </motion.div>
     </section>

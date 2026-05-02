@@ -12,7 +12,7 @@ export const Navbar = () => {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -69,14 +69,14 @@ export const Navbar = () => {
               onMouseLeave={() => setIsLangOpen(false)}
             >
               <button 
-                className="flex items-center space-x-1 p-2 rounded-md hover:bg-secondary transition-colors"
+                className="flex items-center space-x-1 p-2 rounded-lg hover:bg-secondary text-foreground/80 hover:text-foreground transition-all"
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 onMouseEnter={() => setIsLangOpen(true)}
               >
                 <Globe className="w-5 h-5" />
                 <span className="uppercase text-sm font-bold hidden sm:inline">{locale}</span>
               </button>
-              <div className={`absolute right-0 top-full pt-2 w-32 bg-card rounded-xl shadow-2xl transition-all transform border border-border py-2 z-50 ${isLangOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
+              <div className={`absolute right-0 top-full pt-2 w-40 bg-card rounded-xl shadow-2xl transition-all transform border border-border py-2 z-50 ${isLangOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
                 {['en', 'jp', 'pt'].map((lang) => (
                   <button
                     key={lang}
@@ -85,7 +85,7 @@ export const Navbar = () => {
                       setIsLangOpen(false);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors uppercase font-bold ${locale === lang ? 'text-blue-600' : 'text-gray-700 dark:text-gray-300'}`}
+                    className={`block w-full text-left px-4 py-2.5 text-sm transition-all uppercase font-bold ${locale === lang ? 'bg-accent/10 text-accent' : 'text-foreground/70 hover:bg-secondary hover:text-foreground'}`}
                   >
                     {lang === 'en' ? 'English' : lang === 'jp' ? '日本語' : 'Português'}
                   </button>
@@ -95,20 +95,20 @@ export const Navbar = () => {
 
             {/* Theme Toggle */}
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full hover:bg-secondary transition-colors"
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full hover:bg-secondary text-foreground/80 hover:text-foreground transition-all"
               aria-label="Toggle Theme"
             >
-              {theme === "dark" ? (
+              {resolvedTheme === "dark" ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
+                <Moon className="w-5 h-5 text-slate-700" />
               )}
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 rounded-lg hover:bg-secondary text-foreground transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
@@ -121,10 +121,10 @@ export const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-b border-border overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-card border-b border-border shadow-xl overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
@@ -132,7 +132,7 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="block px-4 py-3 text-base font-semibold text-foreground/70 hover:text-accent hover:bg-secondary rounded-lg transition-all"
                 >
                   {link.name}
                 </a>
