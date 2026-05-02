@@ -61,6 +61,15 @@ export const Hero = () => {
         >
           {t("titlePart1")}<br />{t("titlePart2")}
         </motion.h1>
+
+        {locale === 'jp' && (
+          <motion.p 
+            variants={item} 
+            className="text-blue-600 dark:text-blue-400 font-bold tracking-widest mb-6 text-sm sm:text-base"
+          >
+            と申します。
+          </motion.p>
+        )}
         
         <motion.h2 variants={item} className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground/90 mb-8 max-w-2xl mx-auto">
           {t("subtitle")}

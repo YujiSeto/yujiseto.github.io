@@ -6,8 +6,8 @@
   },
   "Hero": {
     "greeting": "はじめまして、",
-    "titlePart1": "セト ソウマ",
-    "titlePart2": "ロドリゴ ユウジ",
+    "titlePart1": "セト・ソウマ",
+    "titlePart2": "ロドリゴ・ユウジ",
     "subtitle": "フロントエンドエンジニア",
     "valueProposition": "高速でクリーン、かつスケーラブルなWebアプリケーションを構築し、フロントエンド開発にビジネス志向のアプローチをもたらします。",
     "viewProjects": "プロジェクトを見る",
@@ -26,8 +26,8 @@
     "title": "テクニカルスキル"
   },
   "Footer": {
-    "rights": "全著作権所有。",
+    "rights": "All rights reserved.",
     "contact": "お問い合わせ",
-    "tagline": "ビジネスのニーズと最新のテクノロジーを繋ぐ。"
+    "tagline": "ビジネスニーズと最新技術を繋ぐ"
   }
 }
